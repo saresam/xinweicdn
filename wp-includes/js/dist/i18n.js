@@ -1,1 +1,1404 @@
-this.wp=this.wp||{};this.wp.i18n=function(n){function t(r){if(i[r])return i[r].exports;var u=i[r]={i:r,l:!1,exports:{}};return n[r].call(u.exports,u,u.exports,t),u.l=!0,u.exports}var i={};return t.m=n,t.c=i,t.d=function(n,i,r){t.o(n,i)||Object.defineProperty(n,i,{enumerable:!0,get:r})},t.r=function(n){typeof Symbol!="undefined"&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"});Object.defineProperty(n,"__esModule",{value:!0})},t.t=function(n,i){var r,u;if((i&1&&(n=t(n)),i&8)||i&4&&typeof n=="object"&&n&&n.__esModule)return n;if(r=Object.create(null),t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:n}),i&2&&typeof n!="string")for(u in n)t.d(r,u,function(t){return n[t]}.bind(null,u));return r},t.n=function(n){var i=n&&n.__esModule?function(){return n["default"]}:function(){return n};return t.d(i,"a",i),i},t.o=function(n,t){return Object.prototype.hasOwnProperty.call(n,t)},t.p="",t(t.s=452)}({197:function(n,t,i){var r;!function(){"use strict";function f(n){return s(h(n),arguments)}function e(n,t){return f.apply(null,[n].concat(t||[]))}function s(n,t){for(var y=1,p=n.length,i,h="",o,r,c,l,a,v,s,e=0;e<p;e++)if(typeof n[e]=="string")h+=n[e];else if(typeof n[e]=="object"){if(r=n[e],r.keys)for(i=t[y],o=0;o<r.keys.length;o++){if(i==undefined)throw new Error(f('[sprintf] Cannot access property "%s" of undefined value "%s"',r.keys[o],r.keys[o-1]));i=i[r.keys[o]]}else i=r.param_no?t[r.param_no]:t[y++];if(u.not_type.test(r.type)&&u.not_primitive.test(r.type)&&i instanceof Function&&(i=i()),u.numeric_arg.test(r.type)&&typeof i!="number"&&isNaN(i))throw new TypeError(f("[sprintf] expecting number but found %T",i));u.number.test(r.type)&&(v=i>=0);switch(r.type){case"b":i=parseInt(i,10).toString(2);break;case"c":i=String.fromCharCode(parseInt(i,10));break;case"d":case"i":i=parseInt(i,10);break;case"j":i=JSON.stringify(i,null,r.width?parseInt(r.width):0);break;case"e":i=r.precision?parseFloat(i).toExponential(r.precision):parseFloat(i).toExponential();break;case"f":i=r.precision?parseFloat(i).toFixed(r.precision):parseFloat(i);break;case"g":i=r.precision?String(Number(i.toPrecision(r.precision))):parseFloat(i);break;case"o":i=(parseInt(i,10)>>>0).toString(8);break;case"s":i=String(i);i=r.precision?i.substring(0,r.precision):i;break;case"t":i=String(!!i);i=r.precision?i.substring(0,r.precision):i;break;case"T":i=Object.prototype.toString.call(i).slice(8,-1).toLowerCase();i=r.precision?i.substring(0,r.precision):i;break;case"u":i=parseInt(i,10)>>>0;break;case"v":i=i.valueOf();i=r.precision?i.substring(0,r.precision):i;break;case"x":i=(parseInt(i,10)>>>0).toString(16);break;case"X":i=(parseInt(i,10)>>>0).toString(16).toUpperCase()}u.json.test(r.type)?h+=i:(u.number.test(r.type)&&(!v||r.sign)?(s=v?"+":"-",i=i.toString().replace(u.sign,"")):s="",l=r.pad_char?r.pad_char==="0"?"0":r.pad_char.charAt(1):" ",a=r.width-(s+i).length,c=r.width?a>0?l.repeat(a):"":"",h+=r.align?s+i+c:l==="0"?s+c+i:c+s+i)}return h}function h(n){if(o[n])return o[n];for(var r=n,t,e=[],h=0;r;){if((t=u.text.exec(r))!==null)e.push(t[0]);else if((t=u.modulo.exec(r))!==null)e.push("%");else if((t=u.placeholder.exec(r))!==null){if(t[2]){h|=1;var s=[],f=t[2],i=[];if((i=u.key.exec(f))!==null)for(s.push(i[1]);(f=f.substring(i[0].length))!=="";)if((i=u.key_access.exec(f))!==null)s.push(i[1]);else if((i=u.index_access.exec(f))!==null)s.push(i[1]);else throw new SyntaxError("[sprintf] failed to parse named argument key");else throw new SyntaxError("[sprintf] failed to parse named argument key");t[2]=s}else h|=2;if(h===3)throw new Error("[sprintf] mixing positional and named placeholders is not (yet) supported");e.push({placeholder:t[0],param_no:t[1],keys:t[2],sign:t[3],pad_char:t[4],align:t[5],width:t[6],precision:t[7],type:t[8]})}else throw new SyntaxError("[sprintf] unexpected placeholder");r=r.substring(t[0].length)}return o[n]=e}var u={not_string:/[^s]/,not_bool:/[^t]/,not_type:/[^T]/,not_primitive:/[^v]/,number:/[diefg]/,numeric_arg:/[bcdiefguxX]/,json:/[j]/,not_json:/[^j]/,text:/^[^\x25]+/,modulo:/^\x25{2}/,placeholder:/^\x25(?:([1-9]\d*)\$|\(([^)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-gijostTuvxX])/,key:/^([a-z_][a-z_\d]*)/i,key_access:/^\.([a-z_][a-z_\d]*)/i,index_access:/^\[(\d+)\]/,sign:/^[+-]/},o=Object.create(null);!0&&(t.sprintf=f,t.vsprintf=e);typeof window!="undefined"&&(window.sprintf=f,window.vsprintf=e,!0&&!(r=function(){return{sprintf:f,vsprintf:e}}.call(t,i,t,n),r!==undefined&&(n.exports=r)))}()},452:function(n,t,i){"use strict";function nt(n){try{for(var i=arguments.length,r=new Array(i>1?i-1:0),t=1;t<i;t++)r[t-1]=arguments[t];return s.a.sprintf.apply(s.a,[n].concat(r))}catch(u){return g("sprintf error: \n\n"+u.toString()),n}}function tt(n){for(var r=[],e=[],o,t,s,i;o=n.match(l);){for(t=o[0],s=n.substr(0,o.index).trim(),s&&r.push(s);i=e.pop();){if(u[t]){if(u[t][0]===i){t=u[t][1]||t;break}}else if(c.indexOf(i)>=0||f[i]<f[t]){e.push(i);break}r.push(i)}u[t]||e.push(t);n=n.substr(o.index+t.length)}return n=n.trim(),n&&r.push(n),r.concat(e.reverse())}function it(n,t){for(var e=[],u,o,f,i,s,r=0;r<n.length;r++){if(i=n[r],f=a[i],f){for(u=f.length,o=Array(u);u--;)o[u]=e.pop();try{s=f.apply(null,o)}catch(h){return h}}else s=t.hasOwnProperty(i)?t[i]:+i;e.push(s)}return e[0]}function rt(n){var t=tt(n);return function(n){return it(t,n)}}function ut(n){var t=rt(n);return function(n){return+t({n:n})}}function ft(n){for(var r,i=n.split(";"),t=0;t<i.length;t++)if(r=i[t].trim(),r.indexOf("plural=")===0)return r.substr(7)}function o(n,t){var i;this.data=n;this.pluralForms={};this.options={};for(i in e)this.options[i]=t!==undefined&&i in t?t[i]:e[i]}function v(n,t){var r=Object.keys(n),i;return Object.getOwnPropertySymbols&&(i=Object.getOwnPropertySymbols(n),t&&(i=i.filter(function(t){return Object.getOwnPropertyDescriptor(n,t).enumerable})),r.push.apply(r,i)),r}function y(n){for(var i,t=1;t<arguments.length;t++)i=arguments[t]!=null?arguments[t]:{},t%2?v(Object(i),!0).forEach(function(t){Object(h.a)(n,t,i[t])}):Object.getOwnPropertyDescriptors?Object.defineProperties(n,Object.getOwnPropertyDescriptors(i)):v(Object(i)).forEach(function(t){Object.defineProperty(n,t,Object.getOwnPropertyDescriptor(i,t))});return n}var h,f,c,u,l,a,e;i.r(t);i.d(t,"sprintf",function(){return nt});i.d(t,"createI18n",function(){return w});i.d(t,"setLocaleData",function(){return et});i.d(t,"__",function(){return ot});i.d(t,"_x",function(){return st});i.d(t,"_n",function(){return ht});i.d(t,"_nx",function(){return ct});i.d(t,"isRTL",function(){return lt});var b=i(60),k=i.n(b),d=i(197),s=i.n(d),g=k()(console.error);h=i(5);f={"(":9,"!":8,"*":7,"/":7,"%":7,"+":6,"-":6,"<":5,"<=":5,">":5,">=":5,"==":4,"!=":4,"&&":3,"||":2,"?":1,"?:":1};c=["(","?"];u={")":["("],":":["?","?:"]};l=/<=|>=|==|!=|&&|\|\||\?:|\(|!|\*|\/|%|\+|-|<|>|\?|\)|:/;a={"!":function(n){return!n},"*":function(n,t){return n*t},"/":function(n,t){return n/t},"%":function(n,t){return n%t},"+":function(n,t){return n+t},"-":function(n,t){return n-t},"<":function(n,t){return n<t},"<=":function(n,t){return n<=t},">":function(n,t){return n>t},">=":function(n,t){return n>=t},"==":function(n,t){return n===t},"!=":function(n,t){return n!==t},"&&":function(n,t){return n&&t},"||":function(n,t){return n||t},"?:":function(n,t,i){if(n)throw t;return i}};e={contextDelimiter:"\x04",onMissingKey:null};o.prototype.getPluralForm=function(n,t){var u=this.pluralForms[n],i,f,r;return u||(i=this.data[n][""],r=i["Plural-Forms"]||i["plural-forms"]||i.plural_forms,typeof r!="function"&&(f=ft(i["Plural-Forms"]||i["plural-forms"]||i.plural_forms),r=ut(f)),u=this.pluralForms[n]=r),u(t)};o.prototype.dcnpgettext=function(n,t,i,r,u){var f,o,e;if(f=u===undefined?0:this.getPluralForm(n,u),o=i,t&&(o=t+this.options.contextDelimiter+i),e=this.data[n][o],e&&e[f])return e[f];if(this.options.onMissingKey)this.options.onMissingKey(i,n);return f===0?i:r};var p={"":{plural_forms:function(n){return n===1?0:1}}},w=function(n,t){var i=new o({}),u=function(n){var t=arguments.length>1&&arguments[1]!==undefined?arguments[1]:"default";i.data[t]=y({},p,{},i.data[t],{},n);i.data[t][""]=y({},p[""],{},i.data[t][""])},r=function(){var n=arguments.length>0&&arguments[0]!==undefined?arguments[0]:"default",t=arguments.length>1?arguments[1]:undefined,r=arguments.length>2?arguments[2]:undefined,f=arguments.length>3?arguments[3]:undefined,e=arguments.length>4?arguments[4]:undefined;return i.data[n]||u(undefined,n),i.dcnpgettext(n,t,r,f,e)},e=function(n,t){return r(t,undefined,n)},f=function(n,t,i){return r(i,t,n)},s=function(n,t,i,u){return r(u,undefined,n,t,i)},h=function(n,t,i,u,f){return r(f,u,n,t,i)},c=function(){return"rtl"===f("ltr","text direction")};return n&&u(n,t),{setLocaleData:u,__:e,_x:f,_n:s,_nx:h,isRTL:c}},r=w(),et=r.setLocaleData.bind(r),ot=r.__.bind(r),st=r._x.bind(r),ht=r._n.bind(r),ct=r._nx.bind(r),lt=r.isRTL.bind(r)},5:function(n,t,i){"use strict";function r(n,t,i){return t in n?Object.defineProperty(n,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):n[t]=i,n}i.d(t,"a",function(){return r})},60:function(n){function t(n,t){function f(){var f=i,s=arguments.length,o,e;n:while(f){if(f.args.length!==arguments.length){f=f.next;continue}for(e=0;e<s;e++)if(f.args[e]!==arguments[e]){f=f.next;continue n}return f!==i&&(f===r&&(r=f.prev),f.prev.next=f.next,f.next&&(f.next.prev=f.prev),f.next=i,f.prev=null,i.prev=f,i=f),f.val}for(o=new Array(s),e=0;e<s;e++)o[e]=arguments[e];return f={args:o,val:n.apply(null,o)},i?(i.prev=f,f.next=i):r=f,u===t.maxSize?(r=r.prev,r.next=null):u++,i=f,f.val}var u=0,i,r;return t=t||{},f.clear=function(){i=null;r=null;u=0},f}n.exports=t}})
+this["wp"] = this["wp"] || {}; this["wp"]["i18n"] =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 452);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 197:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
+
+!function() {
+    'use strict'
+
+    var re = {
+        not_string: /[^s]/,
+        not_bool: /[^t]/,
+        not_type: /[^T]/,
+        not_primitive: /[^v]/,
+        number: /[diefg]/,
+        numeric_arg: /[bcdiefguxX]/,
+        json: /[j]/,
+        not_json: /[^j]/,
+        text: /^[^\x25]+/,
+        modulo: /^\x25{2}/,
+        placeholder: /^\x25(?:([1-9]\d*)\$|\(([^)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-gijostTuvxX])/,
+        key: /^([a-z_][a-z_\d]*)/i,
+        key_access: /^\.([a-z_][a-z_\d]*)/i,
+        index_access: /^\[(\d+)\]/,
+        sign: /^[+-]/
+    }
+
+    function sprintf(key) {
+        // `arguments` is not an array, but should be fine for this call
+        return sprintf_format(sprintf_parse(key), arguments)
+    }
+
+    function vsprintf(fmt, argv) {
+        return sprintf.apply(null, [fmt].concat(argv || []))
+    }
+
+    function sprintf_format(parse_tree, argv) {
+        var cursor = 1, tree_length = parse_tree.length, arg, output = '', i, k, ph, pad, pad_character, pad_length, is_positive, sign
+        for (i = 0; i < tree_length; i++) {
+            if (typeof parse_tree[i] === 'string') {
+                output += parse_tree[i]
+            }
+            else if (typeof parse_tree[i] === 'object') {
+                ph = parse_tree[i] // convenience purposes only
+                if (ph.keys) { // keyword argument
+                    arg = argv[cursor]
+                    for (k = 0; k < ph.keys.length; k++) {
+                        if (arg == undefined) {
+                            throw new Error(sprintf('[sprintf] Cannot access property "%s" of undefined value "%s"', ph.keys[k], ph.keys[k-1]))
+                        }
+                        arg = arg[ph.keys[k]]
+                    }
+                }
+                else if (ph.param_no) { // positional argument (explicit)
+                    arg = argv[ph.param_no]
+                }
+                else { // positional argument (implicit)
+                    arg = argv[cursor++]
+                }
+
+                if (re.not_type.test(ph.type) && re.not_primitive.test(ph.type) && arg instanceof Function) {
+                    arg = arg()
+                }
+
+                if (re.numeric_arg.test(ph.type) && (typeof arg !== 'number' && isNaN(arg))) {
+                    throw new TypeError(sprintf('[sprintf] expecting number but found %T', arg))
+                }
+
+                if (re.number.test(ph.type)) {
+                    is_positive = arg >= 0
+                }
+
+                switch (ph.type) {
+                    case 'b':
+                        arg = parseInt(arg, 10).toString(2)
+                        break
+                    case 'c':
+                        arg = String.fromCharCode(parseInt(arg, 10))
+                        break
+                    case 'd':
+                    case 'i':
+                        arg = parseInt(arg, 10)
+                        break
+                    case 'j':
+                        arg = JSON.stringify(arg, null, ph.width ? parseInt(ph.width) : 0)
+                        break
+                    case 'e':
+                        arg = ph.precision ? parseFloat(arg).toExponential(ph.precision) : parseFloat(arg).toExponential()
+                        break
+                    case 'f':
+                        arg = ph.precision ? parseFloat(arg).toFixed(ph.precision) : parseFloat(arg)
+                        break
+                    case 'g':
+                        arg = ph.precision ? String(Number(arg.toPrecision(ph.precision))) : parseFloat(arg)
+                        break
+                    case 'o':
+                        arg = (parseInt(arg, 10) >>> 0).toString(8)
+                        break
+                    case 's':
+                        arg = String(arg)
+                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        break
+                    case 't':
+                        arg = String(!!arg)
+                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        break
+                    case 'T':
+                        arg = Object.prototype.toString.call(arg).slice(8, -1).toLowerCase()
+                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        break
+                    case 'u':
+                        arg = parseInt(arg, 10) >>> 0
+                        break
+                    case 'v':
+                        arg = arg.valueOf()
+                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        break
+                    case 'x':
+                        arg = (parseInt(arg, 10) >>> 0).toString(16)
+                        break
+                    case 'X':
+                        arg = (parseInt(arg, 10) >>> 0).toString(16).toUpperCase()
+                        break
+                }
+                if (re.json.test(ph.type)) {
+                    output += arg
+                }
+                else {
+                    if (re.number.test(ph.type) && (!is_positive || ph.sign)) {
+                        sign = is_positive ? '+' : '-'
+                        arg = arg.toString().replace(re.sign, '')
+                    }
+                    else {
+                        sign = ''
+                    }
+                    pad_character = ph.pad_char ? ph.pad_char === '0' ? '0' : ph.pad_char.charAt(1) : ' '
+                    pad_length = ph.width - (sign + arg).length
+                    pad = ph.width ? (pad_length > 0 ? pad_character.repeat(pad_length) : '') : ''
+                    output += ph.align ? sign + arg + pad : (pad_character === '0' ? sign + pad + arg : pad + sign + arg)
+                }
+            }
+        }
+        return output
+    }
+
+    var sprintf_cache = Object.create(null)
+
+    function sprintf_parse(fmt) {
+        if (sprintf_cache[fmt]) {
+            return sprintf_cache[fmt]
+        }
+
+        var _fmt = fmt, match, parse_tree = [], arg_names = 0
+        while (_fmt) {
+            if ((match = re.text.exec(_fmt)) !== null) {
+                parse_tree.push(match[0])
+            }
+            else if ((match = re.modulo.exec(_fmt)) !== null) {
+                parse_tree.push('%')
+            }
+            else if ((match = re.placeholder.exec(_fmt)) !== null) {
+                if (match[2]) {
+                    arg_names |= 1
+                    var field_list = [], replacement_field = match[2], field_match = []
+                    if ((field_match = re.key.exec(replacement_field)) !== null) {
+                        field_list.push(field_match[1])
+                        while ((replacement_field = replacement_field.substring(field_match[0].length)) !== '') {
+                            if ((field_match = re.key_access.exec(replacement_field)) !== null) {
+                                field_list.push(field_match[1])
+                            }
+                            else if ((field_match = re.index_access.exec(replacement_field)) !== null) {
+                                field_list.push(field_match[1])
+                            }
+                            else {
+                                throw new SyntaxError('[sprintf] failed to parse named argument key')
+                            }
+                        }
+                    }
+                    else {
+                        throw new SyntaxError('[sprintf] failed to parse named argument key')
+                    }
+                    match[2] = field_list
+                }
+                else {
+                    arg_names |= 2
+                }
+                if (arg_names === 3) {
+                    throw new Error('[sprintf] mixing positional and named placeholders is not (yet) supported')
+                }
+
+                parse_tree.push(
+                    {
+                        placeholder: match[0],
+                        param_no:    match[1],
+                        keys:        match[2],
+                        sign:        match[3],
+                        pad_char:    match[4],
+                        align:       match[5],
+                        width:       match[6],
+                        precision:   match[7],
+                        type:        match[8]
+                    }
+                )
+            }
+            else {
+                throw new SyntaxError('[sprintf] unexpected placeholder')
+            }
+            _fmt = _fmt.substring(match[0].length)
+        }
+        return sprintf_cache[fmt] = parse_tree
+    }
+
+    /**
+     * export to either browser or node.js
+     */
+    /* eslint-disable quote-props */
+    if (true) {
+        exports['sprintf'] = sprintf
+        exports['vsprintf'] = vsprintf
+    }
+    if (typeof window !== 'undefined') {
+        window['sprintf'] = sprintf
+        window['vsprintf'] = vsprintf
+
+        if (true) {
+            !(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+                return {
+                    'sprintf': sprintf,
+                    'vsprintf': vsprintf
+                }
+            }).call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+        }
+    }
+    /* eslint-enable quote-props */
+}(); // eslint-disable-line
+
+
+/***/ }),
+
+/***/ 452:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "sprintf", function() { return /* reexport */ sprintf_sprintf; });
+__webpack_require__.d(__webpack_exports__, "createI18n", function() { return /* reexport */ create_i18n_createI18n; });
+__webpack_require__.d(__webpack_exports__, "setLocaleData", function() { return /* reexport */ default_i18n_setLocaleData; });
+__webpack_require__.d(__webpack_exports__, "__", function() { return /* reexport */ default_i18n_; });
+__webpack_require__.d(__webpack_exports__, "_x", function() { return /* reexport */ default_i18n_x; });
+__webpack_require__.d(__webpack_exports__, "_n", function() { return /* reexport */ default_i18n_n; });
+__webpack_require__.d(__webpack_exports__, "_nx", function() { return /* reexport */ default_i18n_nx; });
+__webpack_require__.d(__webpack_exports__, "isRTL", function() { return /* reexport */ default_i18n_isRTL; });
+
+// EXTERNAL MODULE: ./node_modules/memize/index.js
+var memize = __webpack_require__(60);
+var memize_default = /*#__PURE__*/__webpack_require__.n(memize);
+
+// EXTERNAL MODULE: ./node_modules/sprintf-js/src/sprintf.js
+var sprintf = __webpack_require__(197);
+var sprintf_default = /*#__PURE__*/__webpack_require__.n(sprintf);
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/sprintf.js
+/**
+ * External dependencies
+ */
+
+
+/**
+ * Log to console, once per message; or more precisely, per referentially equal
+ * argument set. Because Jed throws errors, we log these to the console instead
+ * to avoid crashing the application.
+ *
+ * @param {...*} args Arguments to pass to `console.error`
+ */
+
+var logErrorOnce = memize_default()(console.error); // eslint-disable-line no-console
+
+/**
+ * Returns a formatted string. If an error occurs in applying the format, the
+ * original format string is returned.
+ *
+ * @param {string}    format The format of the string to generate.
+ * @param {...*} args Arguments to apply to the format.
+ *
+ * @see http://www.diveintojavascript.com/projects/javascript-sprintf
+ *
+ * @return {string} The formatted string.
+ */
+
+function sprintf_sprintf(format) {
+  try {
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    return sprintf_default.a.sprintf.apply(sprintf_default.a, [format].concat(args));
+  } catch (error) {
+    logErrorOnce('sprintf error: \n\n' + error.toString());
+    return format;
+  }
+}
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
+var defineProperty = __webpack_require__(5);
+
+// CONCATENATED MODULE: ./node_modules/@tannin/postfix/index.js
+var PRECEDENCE, OPENERS, TERMINATORS, PATTERN;
+
+/**
+ * Operator precedence mapping.
+ *
+ * @type {Object}
+ */
+PRECEDENCE = {
+	'(': 9,
+	'!': 8,
+	'*': 7,
+	'/': 7,
+	'%': 7,
+	'+': 6,
+	'-': 6,
+	'<': 5,
+	'<=': 5,
+	'>': 5,
+	'>=': 5,
+	'==': 4,
+	'!=': 4,
+	'&&': 3,
+	'||': 2,
+	'?': 1,
+	'?:': 1,
+};
+
+/**
+ * Characters which signal pair opening, to be terminated by terminators.
+ *
+ * @type {string[]}
+ */
+OPENERS = [ '(', '?' ];
+
+/**
+ * Characters which signal pair termination, the value an array with the
+ * opener as its first member. The second member is an optional operator
+ * replacement to push to the stack.
+ *
+ * @type {string[]}
+ */
+TERMINATORS = {
+	')': [ '(' ],
+	':': [ '?', '?:' ],
+};
+
+/**
+ * Pattern matching operators and openers.
+ *
+ * @type {RegExp}
+ */
+PATTERN = /<=|>=|==|!=|&&|\|\||\?:|\(|!|\*|\/|%|\+|-|<|>|\?|\)|:/;
+
+/**
+ * Given a C expression, returns the equivalent postfix (Reverse Polish)
+ * notation terms as an array.
+ *
+ * If a postfix string is desired, simply `.join( ' ' )` the result.
+ *
+ * @example
+ *
+ * ```js
+ * import postfix from '@tannin/postfix';
+ *
+ * postfix( 'n > 1' );
+ * // ⇒ [ 'n', '1', '>' ]
+ * ```
+ *
+ * @param {string} expression C expression.
+ *
+ * @return {string[]} Postfix terms.
+ */
+function postfix( expression ) {
+	var terms = [],
+		stack = [],
+		match, operator, term, element;
+
+	while ( ( match = expression.match( PATTERN ) ) ) {
+		operator = match[ 0 ];
+
+		// Term is the string preceding the operator match. It may contain
+		// whitespace, and may be empty (if operator is at beginning).
+		term = expression.substr( 0, match.index ).trim();
+		if ( term ) {
+			terms.push( term );
+		}
+
+		while ( ( element = stack.pop() ) ) {
+			if ( TERMINATORS[ operator ] ) {
+				if ( TERMINATORS[ operator ][ 0 ] === element ) {
+					// Substitution works here under assumption that because
+					// the assigned operator will no longer be a terminator, it
+					// will be pushed to the stack during the condition below.
+					operator = TERMINATORS[ operator ][ 1 ] || operator;
+					break;
+				}
+			} else if ( OPENERS.indexOf( element ) >= 0 || PRECEDENCE[ element ] < PRECEDENCE[ operator ] ) {
+				// Push to stack if either an opener or when pop reveals an
+				// element of lower precedence.
+				stack.push( element );
+				break;
+			}
+
+			// For each popped from stack, push to terms.
+			terms.push( element );
+		}
+
+		if ( ! TERMINATORS[ operator ] ) {
+			stack.push( operator );
+		}
+
+		// Slice matched fragment from expression to continue match.
+		expression = expression.substr( match.index + operator.length );
+	}
+
+	// Push remainder of operand, if exists, to terms.
+	expression = expression.trim();
+	if ( expression ) {
+		terms.push( expression );
+	}
+
+	// Pop remaining items from stack into terms.
+	return terms.concat( stack.reverse() );
+}
+
+// CONCATENATED MODULE: ./node_modules/@tannin/evaluate/index.js
+/**
+ * Operator callback functions.
+ *
+ * @type {Object}
+ */
+var OPERATORS = {
+	'!': function( a ) {
+		return ! a;
+	},
+	'*': function( a, b ) {
+		return a * b;
+	},
+	'/': function( a, b ) {
+		return a / b;
+	},
+	'%': function( a, b ) {
+		return a % b;
+	},
+	'+': function( a, b ) {
+		return a + b;
+	},
+	'-': function( a, b ) {
+		return a - b;
+	},
+	'<': function( a, b ) {
+		return a < b;
+	},
+	'<=': function( a, b ) {
+		return a <= b;
+	},
+	'>': function( a, b ) {
+		return a > b;
+	},
+	'>=': function( a, b ) {
+		return a >= b;
+	},
+	'==': function( a, b ) {
+		return a === b;
+	},
+	'!=': function( a, b ) {
+		return a !== b;
+	},
+	'&&': function( a, b ) {
+		return a && b;
+	},
+	'||': function( a, b ) {
+		return a || b;
+	},
+	'?:': function( a, b, c ) {
+		if ( a ) {
+			throw b;
+		}
+
+		return c;
+	},
+};
+
+/**
+ * Given an array of postfix terms and operand variables, returns the result of
+ * the postfix evaluation.
+ *
+ * @example
+ *
+ * ```js
+ * import evaluate from '@tannin/evaluate';
+ *
+ * // 3 + 4 * 5 / 6 ⇒ '3 4 5 * 6 / +'
+ * const terms = [ '3', '4', '5', '*', '6', '/', '+' ];
+ *
+ * evaluate( terms, {} );
+ * // ⇒ 6.333333333333334
+ * ```
+ *
+ * @param {string[]} postfix   Postfix terms.
+ * @param {Object}   variables Operand variables.
+ *
+ * @return {*} Result of evaluation.
+ */
+function evaluate_evaluate( postfix, variables ) {
+	var stack = [],
+		i, j, args, getOperatorResult, term, value;
+
+	for ( i = 0; i < postfix.length; i++ ) {
+		term = postfix[ i ];
+
+		getOperatorResult = OPERATORS[ term ];
+		if ( getOperatorResult ) {
+			// Pop from stack by number of function arguments.
+			j = getOperatorResult.length;
+			args = Array( j );
+			while ( j-- ) {
+				args[ j ] = stack.pop();
+			}
+
+			try {
+				value = getOperatorResult.apply( null, args );
+			} catch ( earlyReturn ) {
+				return earlyReturn;
+			}
+		} else if ( variables.hasOwnProperty( term ) ) {
+			value = variables[ term ];
+		} else {
+			value = +term;
+		}
+
+		stack.push( value );
+	}
+
+	return stack[ 0 ];
+}
+
+// CONCATENATED MODULE: ./node_modules/@tannin/compile/index.js
+
+
+
+/**
+ * Given a C expression, returns a function which can be called to evaluate its
+ * result.
+ *
+ * @example
+ *
+ * ```js
+ * import compile from '@tannin/compile';
+ *
+ * const evaluate = compile( 'n > 1' );
+ *
+ * evaluate( { n: 2 } );
+ * // ⇒ true
+ * ```
+ *
+ * @param {string} expression C expression.
+ *
+ * @return {(variables?:{[variable:string]:*})=>*} Compiled evaluator.
+ */
+function compile( expression ) {
+	var terms = postfix( expression );
+
+	return function( variables ) {
+		return evaluate_evaluate( terms, variables );
+	};
+}
+
+// CONCATENATED MODULE: ./node_modules/@tannin/plural-forms/index.js
+
+
+/**
+ * Given a C expression, returns a function which, when called with a value,
+ * evaluates the result with the value assumed to be the "n" variable of the
+ * expression. The result will be coerced to its numeric equivalent.
+ *
+ * @param {string} expression C expression.
+ *
+ * @return {Function} Evaluator function.
+ */
+function pluralForms( expression ) {
+	var evaluate = compile( expression );
+
+	return function( n ) {
+		return +evaluate( { n: n } );
+	};
+}
+
+// CONCATENATED MODULE: ./node_modules/tannin/index.js
+
+
+/**
+ * Tannin constructor options.
+ *
+ * @typedef {Object} TanninOptions
+ *
+ * @property {string}   [contextDelimiter] Joiner in string lookup with context.
+ * @property {Function} [onMissingKey]     Callback to invoke when key missing.
+ */
+
+/**
+ * Domain metadata.
+ *
+ * @typedef {Object} TanninDomainMetadata
+ *
+ * @property {string}            [domain]       Domain name.
+ * @property {string}            [lang]         Language code.
+ * @property {(string|Function)} [plural_forms] Plural forms expression or
+ *                                              function evaluator.
+ */
+
+/**
+ * Domain translation pair respectively representing the singular and plural
+ * translation.
+ *
+ * @typedef {[string,string]} TanninTranslation
+ */
+
+/**
+ * Locale data domain. The key is used as reference for lookup, the value an
+ * array of two string entries respectively representing the singular and plural
+ * translation.
+ *
+ * @typedef {{[key:string]:TanninDomainMetadata|TanninTranslation,'':TanninDomainMetadata|TanninTranslation}} TanninLocaleDomain
+ */
+
+/**
+ * Jed-formatted locale data.
+ *
+ * @see http://messageformat.github.io/Jed/
+ *
+ * @typedef {{[domain:string]:TanninLocaleDomain}} TanninLocaleData
+ */
+
+/**
+ * Default Tannin constructor options.
+ *
+ * @type {TanninOptions}
+ */
+var DEFAULT_OPTIONS = {
+	contextDelimiter: '\u0004',
+	onMissingKey: null,
+};
+
+/**
+ * Given a specific locale data's config `plural_forms` value, returns the
+ * expression.
+ *
+ * @example
+ *
+ * ```
+ * getPluralExpression( 'nplurals=2; plural=(n != 1);' ) === '(n != 1)'
+ * ```
+ *
+ * @param {string} pf Locale data plural forms.
+ *
+ * @return {string} Plural forms expression.
+ */
+function getPluralExpression( pf ) {
+	var parts, i, part;
+
+	parts = pf.split( ';' );
+
+	for ( i = 0; i < parts.length; i++ ) {
+		part = parts[ i ].trim();
+		if ( part.indexOf( 'plural=' ) === 0 ) {
+			return part.substr( 7 );
+		}
+	}
+}
+
+/**
+ * Tannin constructor.
+ *
+ * @class
+ *
+ * @param {TanninLocaleData} data      Jed-formatted locale data.
+ * @param {TanninOptions}    [options] Tannin options.
+ */
+function Tannin( data, options ) {
+	var key;
+
+	/**
+	 * Jed-formatted locale data.
+	 *
+	 * @name Tannin#data
+	 * @type {TanninLocaleData}
+	 */
+	this.data = data;
+
+	/**
+	 * Plural forms function cache, keyed by plural forms string.
+	 *
+	 * @name Tannin#pluralForms
+	 * @type {Object<string,Function>}
+	 */
+	this.pluralForms = {};
+
+	/**
+	 * Effective options for instance, including defaults.
+	 *
+	 * @name Tannin#options
+	 * @type {TanninOptions}
+	 */
+	this.options = {};
+
+	for ( key in DEFAULT_OPTIONS ) {
+		this.options[ key ] = options !== undefined && key in options
+			? options[ key ]
+			: DEFAULT_OPTIONS[ key ];
+	}
+}
+
+/**
+ * Returns the plural form index for the given domain and value.
+ *
+ * @param {string} domain Domain on which to calculate plural form.
+ * @param {number} n      Value for which plural form is to be calculated.
+ *
+ * @return {number} Plural form index.
+ */
+Tannin.prototype.getPluralForm = function( domain, n ) {
+	var getPluralForm = this.pluralForms[ domain ],
+		config, plural, pf;
+
+	if ( ! getPluralForm ) {
+		config = this.data[ domain ][ '' ];
+
+		pf = (
+			config[ 'Plural-Forms' ] ||
+			config[ 'plural-forms' ] ||
+			// Ignore reason: As known, there's no way to document the empty
+			// string property on a key to guarantee this as metadata.
+			// @ts-ignore
+			config.plural_forms
+		);
+
+		if ( typeof pf !== 'function' ) {
+			plural = getPluralExpression(
+				config[ 'Plural-Forms' ] ||
+				config[ 'plural-forms' ] ||
+				// Ignore reason: As known, there's no way to document the empty
+				// string property on a key to guarantee this as metadata.
+				// @ts-ignore
+				config.plural_forms
+			);
+
+			pf = pluralForms( plural );
+		}
+
+		getPluralForm = this.pluralForms[ domain ] = pf;
+	}
+
+	return getPluralForm( n );
+};
+
+/**
+ * Translate a string.
+ *
+ * @param {string}      domain   Translation domain.
+ * @param {string|void} context  Context distinguishing terms of the same name.
+ * @param {string}      singular Primary key for translation lookup.
+ * @param {string=}     plural   Fallback value used for non-zero plural
+ *                               form index.
+ * @param {number=}     n        Value to use in calculating plural form.
+ *
+ * @return {string} Translated string.
+ */
+Tannin.prototype.dcnpgettext = function( domain, context, singular, plural, n ) {
+	var index, key, entry;
+
+	if ( n === undefined ) {
+		// Default to singular.
+		index = 0;
+	} else {
+		// Find index by evaluating plural form for value.
+		index = this.getPluralForm( domain, n );
+	}
+
+	key = singular;
+
+	// If provided, context is prepended to key with delimiter.
+	if ( context ) {
+		key = context + this.options.contextDelimiter + singular;
+	}
+
+	entry = this.data[ domain ][ key ];
+
+	// Verify not only that entry exists, but that the intended index is within
+	// range and non-empty.
+	if ( entry && entry[ index ] ) {
+		return entry[ index ];
+	}
+
+	if ( this.options.onMissingKey ) {
+		this.options.onMissingKey( singular, domain );
+	}
+
+	// If entry not found, fall back to singular vs. plural with zero index
+	// representing the singular value.
+	return index === 0 ? singular : plural;
+};
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/create-i18n.js
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+/**
+ * External dependencies
+ */
+
+/**
+ * @typedef {Record<string,any>} LocaleData
+ */
+
+/**
+ * Default locale data to use for Tannin domain when not otherwise provided.
+ * Assumes an English plural forms expression.
+ *
+ * @type {LocaleData}
+ */
+
+var DEFAULT_LOCALE_DATA = {
+  '': {
+    /** @param {number} n */
+    plural_forms: function plural_forms(n) {
+      return n === 1 ? 0 : 1;
+    }
+  }
+};
+/**
+ * An i18n instance
+ *
+ * @typedef {Object} I18n
+ * @property {Function} setLocaleData Merges locale data into the Tannin instance by domain. Accepts data in a
+ *                                    Jed-formatted JSON object shape.
+ * @property {Function} __            Retrieve the translation of text.
+ * @property {Function} _x            Retrieve translated string with gettext context.
+ * @property {Function} _n            Translates and retrieves the singular or plural form based on the supplied
+ *                                    number.
+ * @property {Function} _nx           Translates and retrieves the singular or plural form based on the supplied
+ *                                    number, with gettext context.
+ * @property {Function} isRTL         Check if current locale is RTL.
+ */
+
+/**
+ * Create an i18n instance
+ *
+ * @param {LocaleData} [initialData]    Locale data configuration.
+ * @param {string}     [initialDomain]  Domain for which configuration applies.
+ * @return {I18n}                       I18n instance
+ */
+
+var create_i18n_createI18n = function createI18n(initialData, initialDomain) {
+  /**
+   * The underlying instance of Tannin to which exported functions interface.
+   *
+   * @type {Tannin}
+   */
+  var tannin = new Tannin({});
+  /**
+   * Merges locale data into the Tannin instance by domain. Accepts data in a
+   * Jed-formatted JSON object shape.
+   *
+   * @see http://messageformat.github.io/Jed/
+   *
+   * @param {LocaleData} [data]   Locale data configuration.
+   * @param {string}     [domain] Domain for which configuration applies.
+   */
+
+  var setLocaleData = function setLocaleData(data) {
+    var domain = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'default';
+    tannin.data[domain] = _objectSpread({}, DEFAULT_LOCALE_DATA, {}, tannin.data[domain], {}, data); // Populate default domain configuration (supported locale date which omits
+    // a plural forms expression).
+
+    tannin.data[domain][''] = _objectSpread({}, DEFAULT_LOCALE_DATA[''], {}, tannin.data[domain]['']);
+  };
+  /**
+   * Wrapper for Tannin's `dcnpgettext`. Populates default locale data if not
+   * otherwise previously assigned.
+   *
+   * @param {string|undefined} domain   Domain to retrieve the translated text.
+   * @param {string|undefined} context  Context information for the translators.
+   * @param {string}           single   Text to translate if non-plural. Used as
+   *                                    fallback return value on a caught error.
+   * @param {string}           [plural] The text to be used if the number is
+   *                                    plural.
+   * @param {number}           [number] The number to compare against to use
+   *                                    either the singular or plural form.
+   *
+   * @return {string} The translated string.
+   */
+
+
+  var dcnpgettext = function dcnpgettext() {
+    var domain = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'default';
+    var context = arguments.length > 1 ? arguments[1] : undefined;
+    var single = arguments.length > 2 ? arguments[2] : undefined;
+    var plural = arguments.length > 3 ? arguments[3] : undefined;
+    var number = arguments.length > 4 ? arguments[4] : undefined;
+
+    if (!tannin.data[domain]) {
+      setLocaleData(undefined, domain);
+    }
+
+    return tannin.dcnpgettext(domain, context, single, plural, number);
+  };
+  /**
+   * Retrieve the translation of text.
+   *
+   * @see https://developer.wordpress.org/reference/functions/__/
+   *
+   * @param {string} text     Text to translate.
+   * @param {string} [domain] Domain to retrieve the translated text.
+   *
+   * @return {string} Translated text.
+   */
+
+
+  var __ = function __(text, domain) {
+    return dcnpgettext(domain, undefined, text);
+  };
+  /**
+   * Retrieve translated string with gettext context.
+   *
+   * @see https://developer.wordpress.org/reference/functions/_x/
+   *
+   * @param {string} text     Text to translate.
+   * @param {string} context  Context information for the translators.
+   * @param {string} [domain] Domain to retrieve the translated text.
+   *
+   * @return {string} Translated context string without pipe.
+   */
+
+
+  var _x = function _x(text, context, domain) {
+    return dcnpgettext(domain, context, text);
+  };
+  /**
+   * Translates and retrieves the singular or plural form based on the supplied
+   * number.
+   *
+   * @see https://developer.wordpress.org/reference/functions/_n/
+   *
+   * @param {string} single   The text to be used if the number is singular.
+   * @param {string} plural   The text to be used if the number is plural.
+   * @param {number} number   The number to compare against to use either the
+   *                          singular or plural form.
+   * @param {string} [domain] Domain to retrieve the translated text.
+   *
+   * @return {string} The translated singular or plural form.
+   */
+
+
+  var _n = function _n(single, plural, number, domain) {
+    return dcnpgettext(domain, undefined, single, plural, number);
+  };
+  /**
+   * Translates and retrieves the singular or plural form based on the supplied
+   * number, with gettext context.
+   *
+   * @see https://developer.wordpress.org/reference/functions/_nx/
+   *
+   * @param {string} single   The text to be used if the number is singular.
+   * @param {string} plural   The text to be used if the number is plural.
+   * @param {number} number   The number to compare against to use either the
+   *                          singular or plural form.
+   * @param {string} context  Context information for the translators.
+   * @param {string} [domain] Domain to retrieve the translated text.
+   *
+   * @return {string} The translated singular or plural form.
+   */
+
+
+  var _nx = function _nx(single, plural, number, context, domain) {
+    return dcnpgettext(domain, context, single, plural, number);
+  };
+  /**
+   * Check if current locale is RTL.
+   *
+   * **RTL (Right To Left)** is a locale property indicating that text is written from right to left.
+   * For example, the `he` locale (for Hebrew) specifies right-to-left. Arabic (ar) is another common
+   * language written RTL. The opposite of RTL, LTR (Left To Right) is used in other languages,
+   * including English (`en`, `en-US`, `en-GB`, etc.), Spanish (`es`), and French (`fr`).
+   *
+   * @return {boolean} Whether locale is RTL.
+   */
+
+
+  var isRTL = function isRTL() {
+    return 'rtl' === _x('ltr', 'text direction');
+  };
+
+  if (initialData) {
+    setLocaleData(initialData, initialDomain);
+  }
+
+  return {
+    setLocaleData: setLocaleData,
+    __: __,
+    _x: _x,
+    _n: _n,
+    _nx: _nx,
+    isRTL: isRTL
+  };
+};
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/default-i18n.js
+/**
+ * Internal dependencies
+ */
+
+var i18n = create_i18n_createI18n();
+/*
+ * Comments in this file are duplicated from ./i18n due to
+ * https://github.com/WordPress/gutenberg/pull/20318#issuecomment-590837722
+ */
+
+/**
+ * @typedef {import('./create-i18n').LocaleData} LocaleData
+ */
+
+/**
+ * Merges locale data into the Tannin instance by domain. Accepts data in a
+ * Jed-formatted JSON object shape.
+ *
+ * @see http://messageformat.github.io/Jed/
+ *
+ * @param {LocaleData} [data]   Locale data configuration.
+ * @param {string}     [domain] Domain for which configuration applies.
+ */
+
+var default_i18n_setLocaleData = i18n.setLocaleData.bind(i18n);
+/**
+ * Retrieve the translation of text.
+ *
+ * @see https://developer.wordpress.org/reference/functions/__/
+ *
+ * @param {string} text     Text to translate.
+ * @param {string} [domain] Domain to retrieve the translated text.
+ *
+ * @return {string} Translated text.
+ */
+
+var default_i18n_ = i18n.__.bind(i18n);
+/**
+ * Retrieve translated string with gettext context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_x/
+ *
+ * @param {string} text     Text to translate.
+ * @param {string} context  Context information for the translators.
+ * @param {string} [domain] Domain to retrieve the translated text.
+ *
+ * @return {string} Translated context string without pipe.
+ */
+
+var default_i18n_x = i18n._x.bind(i18n);
+/**
+ * Translates and retrieves the singular or plural form based on the supplied
+ * number.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_n/
+ *
+ * @param {string} single   The text to be used if the number is singular.
+ * @param {string} plural   The text to be used if the number is plural.
+ * @param {number} number   The number to compare against to use either the
+ *                          singular or plural form.
+ * @param {string} [domain] Domain to retrieve the translated text.
+ *
+ * @return {string} The translated singular or plural form.
+ */
+
+var default_i18n_n = i18n._n.bind(i18n);
+/**
+ * Translates and retrieves the singular or plural form based on the supplied
+ * number, with gettext context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/_nx/
+ *
+ * @param {string} single   The text to be used if the number is singular.
+ * @param {string} plural   The text to be used if the number is plural.
+ * @param {number} number   The number to compare against to use either the
+ *                          singular or plural form.
+ * @param {string} context  Context information for the translators.
+ * @param {string} [domain] Domain to retrieve the translated text.
+ *
+ * @return {string} The translated singular or plural form.
+ */
+
+var default_i18n_nx = i18n._nx.bind(i18n);
+/**
+ * Check if current locale is RTL.
+ *
+ * **RTL (Right To Left)** is a locale property indicating that text is written from right to left.
+ * For example, the `he` locale (for Hebrew) specifies right-to-left. Arabic (ar) is another common
+ * language written RTL. The opposite of RTL, LTR (Left To Right) is used in other languages,
+ * including English (`en`, `en-US`, `en-GB`, etc.), Spanish (`es`), and French (`fr`).
+ *
+ * @return {boolean} Whether locale is RTL.
+ */
+
+var default_i18n_isRTL = i18n.isRTL.bind(i18n);
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/i18n/build-module/index.js
+
+
+
+
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _defineProperty; });
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+/***/ }),
+
+/***/ 60:
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Memize options object.
+ *
+ * @typedef MemizeOptions
+ *
+ * @property {number} [maxSize] Maximum size of the cache.
+ */
+
+/**
+ * Internal cache entry.
+ *
+ * @typedef MemizeCacheNode
+ *
+ * @property {?MemizeCacheNode|undefined} [prev] Previous node.
+ * @property {?MemizeCacheNode|undefined} [next] Next node.
+ * @property {Array<*>}                   args   Function arguments for cache
+ *                                               entry.
+ * @property {*}                          val    Function result.
+ */
+
+/**
+ * Properties of the enhanced function for controlling cache.
+ *
+ * @typedef MemizeMemoizedFunction
+ *
+ * @property {()=>void} clear Clear the cache.
+ */
+
+/**
+ * Accepts a function to be memoized, and returns a new memoized function, with
+ * optional options.
+ *
+ * @template {Function} F
+ *
+ * @param {F}             fn        Function to memoize.
+ * @param {MemizeOptions} [options] Options object.
+ *
+ * @return {F & MemizeMemoizedFunction} Memoized function.
+ */
+function memize( fn, options ) {
+	var size = 0;
+
+	/** @type {?MemizeCacheNode|undefined} */
+	var head;
+
+	/** @type {?MemizeCacheNode|undefined} */
+	var tail;
+
+	options = options || {};
+
+	function memoized( /* ...args */ ) {
+		var node = head,
+			len = arguments.length,
+			args, i;
+
+		searchCache: while ( node ) {
+			// Perform a shallow equality test to confirm that whether the node
+			// under test is a candidate for the arguments passed. Two arrays
+			// are shallowly equal if their length matches and each entry is
+			// strictly equal between the two sets. Avoid abstracting to a
+			// function which could incur an arguments leaking deoptimization.
+
+			// Check whether node arguments match arguments length
+			if ( node.args.length !== arguments.length ) {
+				node = node.next;
+				continue;
+			}
+
+			// Check whether node arguments match arguments values
+			for ( i = 0; i < len; i++ ) {
+				if ( node.args[ i ] !== arguments[ i ] ) {
+					node = node.next;
+					continue searchCache;
+				}
+			}
+
+			// At this point we can assume we've found a match
+
+			// Surface matched node to head if not already
+			if ( node !== head ) {
+				// As tail, shift to previous. Must only shift if not also
+				// head, since if both head and tail, there is no previous.
+				if ( node === tail ) {
+					tail = node.prev;
+				}
+
+				// Adjust siblings to point to each other. If node was tail,
+				// this also handles new tail's empty `next` assignment.
+				/** @type {MemizeCacheNode} */ ( node.prev ).next = node.next;
+				if ( node.next ) {
+					node.next.prev = node.prev;
+				}
+
+				node.next = head;
+				node.prev = null;
+				/** @type {MemizeCacheNode} */ ( head ).prev = node;
+				head = node;
+			}
+
+			// Return immediately
+			return node.val;
+		}
+
+		// No cached value found. Continue to insertion phase:
+
+		// Create a copy of arguments (avoid leaking deoptimization)
+		args = new Array( len );
+		for ( i = 0; i < len; i++ ) {
+			args[ i ] = arguments[ i ];
+		}
+
+		node = {
+			args: args,
+
+			// Generate the result from original function
+			val: fn.apply( null, args ),
+		};
+
+		// Don't need to check whether node is already head, since it would
+		// have been returned above already if it was
+
+		// Shift existing head down list
+		if ( head ) {
+			head.prev = node;
+			node.next = head;
+		} else {
+			// If no head, follows that there's no tail (at initial or reset)
+			tail = node;
+		}
+
+		// Trim tail if we're reached max size and are pending cache insertion
+		if ( size === /** @type {MemizeOptions} */ ( options ).maxSize ) {
+			tail = /** @type {MemizeCacheNode} */ ( tail ).prev;
+			/** @type {MemizeCacheNode} */ ( tail ).next = null;
+		} else {
+			size++;
+		}
+
+		head = node;
+
+		return node.val;
+	}
+
+	memoized.clear = function() {
+		head = null;
+		tail = null;
+		size = 0;
+	};
+
+	if ( false ) {}
+
+	// Ignore reason: There's not a clear solution to create an intersection of
+	// the function with additional properties, where the goal is to retain the
+	// function signature of the incoming argument and add control properties
+	// on the return value.
+
+	// @ts-ignore
+	return memoized;
+}
+
+module.exports = memize;
+
+
+/***/ })
+
+/******/ });

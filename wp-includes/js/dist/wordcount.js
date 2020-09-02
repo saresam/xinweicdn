@@ -1,1 +1,431 @@
-this.wp=this.wp||{};this.wp.wordcount=function(n){function t(r){if(i[r])return i[r].exports;var u=i[r]={i:r,l:!1,exports:{}};return n[r].call(u.exports,u,u.exports,t),u.l=!0,u.exports}var i={};return t.m=n,t.c=i,t.d=function(n,i,r){t.o(n,i)||Object.defineProperty(n,i,{enumerable:!0,get:r})},t.r=function(n){typeof Symbol!="undefined"&&Symbol.toStringTag&&Object.defineProperty(n,Symbol.toStringTag,{value:"Module"});Object.defineProperty(n,"__esModule",{value:!0})},t.t=function(n,i){var r,u;if((i&1&&(n=t(n)),i&8)||i&4&&typeof n=="object"&&n&&n.__esModule)return n;if(r=Object.create(null),t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:n}),i&2&&typeof n!="string")for(u in n)t.d(r,u,function(t){return n[t]}.bind(null,u));return r},t.n=function(n){var i=n&&n.__esModule?function(){return n["default"]}:function(){return n};return t.d(i,"a",i),i},t.o=function(n,t){return Object.prototype.hasOwnProperty.call(n,t)},t.p="",t(t.s=450)}({2:function(n){(function(){n.exports=this.lodash})()},450:function(n,t,i){"use strict";function u(n,t){if(n.HTMLRegExp)return t.replace(n.HTMLRegExp,"\n")}function h(n,t){return n.astralRegExp?t.replace(n.astralRegExp,"a"):t}function c(n,t){return n.HTMLEntityRegExp?t.replace(n.HTMLEntityRegExp,""):t}function l(n,t){return n.connectorRegExp?t.replace(n.connectorRegExp," "):t}function a(n,t){return n.removeRegExp?t.replace(n.removeRegExp,""):t}function f(n,t){return n.HTMLcommentRegExp?t.replace(n.HTMLcommentRegExp,""):t}function e(n,t){return n.shortcodesRegExp?t.replace(n.shortcodesRegExp,"\n"):t}function o(n,t){if(n.spaceRegExp)return t.replace(n.spaceRegExp," ")}function v(n,t){return n.HTMLEntityRegExp?t.replace(n.HTMLEntityRegExp,"a"):t}function y(n,t){var i=Object(r.extend)(s,t);return i.shortcodes=i.l10n.shortcodes||{},i.shortcodes&&i.shortcodes.length&&(i.shortcodesRegExp=new RegExp("\\[\\/?(?:"+i.shortcodes.join("|")+")[^\\]]*?\\]","g")),i.type=n||i.l10n.type,i.type!=="characters_excluding_spaces"&&i.type!=="characters_including_spaces"&&(i.type="words"),i}function p(n,t,i){return n=Object(r.flow)(u.bind(this,i),f.bind(this,i),e.bind(this,i),o.bind(this,i),c.bind(this,i),l.bind(this,i),a.bind(this,i))(n),n=n+"\n",n.match(t)}function w(n,t,i){return n=Object(r.flow)(u.bind(this,i),f.bind(this,i),e.bind(this,i),o.bind(this,i),h.bind(this,i),v.bind(this,i))(n),n=n+"\n",n.match(t)}function b(n,t,i){if(""===n)return 0;if(n){var r=y(t,i),u=r[t+"RegExp"],f="words"===r.type?p(n,u,r):w(n,u,r);return f?f.length:0}}i.r(t);i.d(t,"count",function(){return b});var r=i(2),s={HTMLRegExp:/<\/?[a-z][^>]*?>/gi,HTMLcommentRegExp:/<!--[\s\S]*?-->/g,spaceRegExp:/&nbsp;|&#160;/gi,HTMLEntityRegExp:/&\S+?;/g,connectorRegExp:/--|\u2014/g,removeRegExp:new RegExp("[!-@[-`{-~-¿×÷ -⯿⸀-⹿]","g"),astralRegExp:/[\uD800-\uDBFF][\uDC00-\uDFFF]/g,wordsRegExp:/\S\s+/g,characters_excluding_spacesRegExp:/\S/g,characters_including_spacesRegExp:/[^\f\n\r\t\v\u00AD\u2028\u2029]/g,l10n:{type:"words"}}}})
+this["wp"] = this["wp"] || {}; this["wp"]["wordcount"] =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 450);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 2:
+/***/ (function(module, exports) {
+
+(function() { module.exports = this["lodash"]; }());
+
+/***/ }),
+
+/***/ 450:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "count", function() { return /* binding */ count; });
+
+// EXTERNAL MODULE: external {"this":"lodash"}
+var external_this_lodash_ = __webpack_require__(2);
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/defaultSettings.js
+var defaultSettings = {
+  HTMLRegExp: /<\/?[a-z][^>]*?>/gi,
+  HTMLcommentRegExp: /<!--[\s\S]*?-->/g,
+  spaceRegExp: /&nbsp;|&#160;/gi,
+  HTMLEntityRegExp: /&\S+?;/g,
+  // \u2014 = em-dash
+  connectorRegExp: /--|\u2014/g,
+  // Characters to be removed from input text.
+  removeRegExp: new RegExp(['[', // Basic Latin (extract)
+  "!-@[-`{-~", // Latin-1 Supplement (extract)
+  "\x80-\xBF\xD7\xF7",
+  /*
+   * The following range consists of:
+   * General Punctuation
+   * Superscripts and Subscripts
+   * Currency Symbols
+   * Combining Diacritical Marks for Symbols
+   * Letterlike Symbols
+   * Number Forms
+   * Arrows
+   * Mathematical Operators
+   * Miscellaneous Technical
+   * Control Pictures
+   * Optical Character Recognition
+   * Enclosed Alphanumerics
+   * Box Drawing
+   * Block Elements
+   * Geometric Shapes
+   * Miscellaneous Symbols
+   * Dingbats
+   * Miscellaneous Mathematical Symbols-A
+   * Supplemental Arrows-A
+   * Braille Patterns
+   * Supplemental Arrows-B
+   * Miscellaneous Mathematical Symbols-B
+   * Supplemental Mathematical Operators
+   * Miscellaneous Symbols and Arrows
+   */
+  "\u2000-\u2BFF", // Supplemental Punctuation
+  "\u2E00-\u2E7F", ']'].join(''), 'g'),
+  // Remove UTF-16 surrogate points, see https://en.wikipedia.org/wiki/UTF-16#U.2BD800_to_U.2BDFFF
+  astralRegExp: /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
+  wordsRegExp: /\S\s+/g,
+  characters_excluding_spacesRegExp: /\S/g,
+
+  /*
+   * Match anything that is not a formatting character, excluding:
+   * \f = form feed
+   * \n = new line
+   * \r = carriage return
+   * \t = tab
+   * \v = vertical tab
+   * \u00AD = soft hyphen
+   * \u2028 = line separator
+   * \u2029 = paragraph separator
+   */
+  characters_including_spacesRegExp: /[^\f\n\r\t\v\u00AD\u2028\u2029]/g,
+  l10n: {
+    type: 'words'
+  }
+};
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripTags.js
+/**
+ * Replaces items matched in the regex with new line
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function stripTags(settings, text) {
+  if (settings.HTMLRegExp) {
+    return text.replace(settings.HTMLRegExp, '\n');
+  }
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/transposeAstralsToCountableChar.js
+/**
+ * Replaces items matched in the regex with character.
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function transposeAstralsToCountableChar(settings, text) {
+  if (settings.astralRegExp) {
+    return text.replace(settings.astralRegExp, 'a');
+  }
+
+  return text;
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripHTMLEntities.js
+/**
+ * Removes items matched in the regex.
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function stripHTMLEntities(settings, text) {
+  if (settings.HTMLEntityRegExp) {
+    return text.replace(settings.HTMLEntityRegExp, '');
+  }
+
+  return text;
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripConnectors.js
+/**
+ * Replaces items matched in the regex with spaces.
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function stripConnectors(settings, text) {
+  if (settings.connectorRegExp) {
+    return text.replace(settings.connectorRegExp, ' ');
+  }
+
+  return text;
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripRemovables.js
+/**
+ * Removes items matched in the regex.
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function stripRemovables(settings, text) {
+  if (settings.removeRegExp) {
+    return text.replace(settings.removeRegExp, '');
+  }
+
+  return text;
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripHTMLComments.js
+/**
+ * Removes items matched in the regex.
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function stripHTMLComments(settings, text) {
+  if (settings.HTMLcommentRegExp) {
+    return text.replace(settings.HTMLcommentRegExp, '');
+  }
+
+  return text;
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripShortcodes.js
+/**
+ * Replaces items matched in the regex with a new line.
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function stripShortcodes(settings, text) {
+  if (settings.shortcodesRegExp) {
+    return text.replace(settings.shortcodesRegExp, '\n');
+  }
+
+  return text;
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/stripSpaces.js
+/**
+ * Replaces items matched in the regex with spaces.
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function stripSpaces(settings, text) {
+  if (settings.spaceRegExp) {
+    return text.replace(settings.spaceRegExp, ' ');
+  }
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/transposeHTMLEntitiesToCountableChars.js
+/**
+ * Replaces items matched in the regex with a single character.
+ *
+ * @param {Object} settings The main settings object containing regular expressions
+ * @param {string} text     The string being counted.
+ *
+ * @return {string} The manipulated text.
+ */
+function transposeHTMLEntitiesToCountableChars(settings, text) {
+  if (settings.HTMLEntityRegExp) {
+    return text.replace(settings.HTMLEntityRegExp, 'a');
+  }
+
+  return text;
+}
+
+// CONCATENATED MODULE: ./node_modules/@wordpress/wordcount/build-module/index.js
+/**
+ * External dependencies
+ */
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Private function to manage the settings.
+ *
+ * @param {string} type         The type of count to be done.
+ * @param {Object} userSettings Custom settings for the count.
+ *
+ * @return {void|Object|*} The combined settings object to be used.
+ */
+
+function loadSettings(type, userSettings) {
+  var settings = Object(external_this_lodash_["extend"])(defaultSettings, userSettings);
+  settings.shortcodes = settings.l10n.shortcodes || {};
+
+  if (settings.shortcodes && settings.shortcodes.length) {
+    settings.shortcodesRegExp = new RegExp('\\[\\/?(?:' + settings.shortcodes.join('|') + ')[^\\]]*?\\]', 'g');
+  }
+
+  settings.type = type || settings.l10n.type;
+
+  if (settings.type !== 'characters_excluding_spaces' && settings.type !== 'characters_including_spaces') {
+    settings.type = 'words';
+  }
+
+  return settings;
+}
+/**
+ * Match the regex for the type 'words'
+ *
+ * @param {string} text     The text being processed
+ * @param {string} regex    The regular expression pattern being matched
+ * @param {Object} settings Settings object containing regular expressions for each strip function
+ *
+ * @return {Array|{index: number, input: string}} The matched string.
+ */
+
+
+function matchWords(text, regex, settings) {
+  text = Object(external_this_lodash_["flow"])(stripTags.bind(this, settings), stripHTMLComments.bind(this, settings), stripShortcodes.bind(this, settings), stripSpaces.bind(this, settings), stripHTMLEntities.bind(this, settings), stripConnectors.bind(this, settings), stripRemovables.bind(this, settings))(text);
+  text = text + '\n';
+  return text.match(regex);
+}
+/**
+ * Match the regex for either 'characters_excluding_spaces' or 'characters_including_spaces'
+ *
+ * @param {string} text     The text being processed
+ * @param {string} regex    The regular expression pattern being matched
+ * @param {Object} settings Settings object containing regular expressions for each strip function
+ *
+ * @return {Array|{index: number, input: string}} The matched string.
+ */
+
+
+function matchCharacters(text, regex, settings) {
+  text = Object(external_this_lodash_["flow"])(stripTags.bind(this, settings), stripHTMLComments.bind(this, settings), stripShortcodes.bind(this, settings), stripSpaces.bind(this, settings), transposeAstralsToCountableChar.bind(this, settings), transposeHTMLEntitiesToCountableChars.bind(this, settings))(text);
+  text = text + '\n';
+  return text.match(regex);
+}
+/**
+ * Count some words.
+ *
+ * @param {string} text         The text being processed
+ * @param {string} type         The type of count. Accepts ;words', 'characters_excluding_spaces', or 'characters_including_spaces'.
+ * @param {Object} userSettings Custom settings object.
+ *
+ * @example
+ * ```js
+ * import { count } from '@wordpress/wordcount';
+ * const numberOfWords = count( 'Words to count', 'words', {} )
+ * ```
+ *
+ * @return {number} The word or character count.
+ */
+
+
+function count(text, type, userSettings) {
+  if ('' === text) {
+    return 0;
+  }
+
+  if (text) {
+    var settings = loadSettings(type, userSettings);
+    var matchRegExp = settings[type + 'RegExp'];
+    var results = 'words' === settings.type ? matchWords(text, matchRegExp, settings) : matchCharacters(text, matchRegExp, settings);
+    return results ? results.length : 0;
+  }
+}
+
+
+/***/ })
+
+/******/ });
