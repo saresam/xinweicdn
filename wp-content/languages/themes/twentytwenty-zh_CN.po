@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Twenty package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-11-14 20:54:34+0000\n"
+"PO-Revision-Date: 2020-12-08 05:38:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,23 @@ msgstr ""
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: zh_CN\n"
 "Project-Id-Version: Themes - Twenty Twenty\n"
+
+#. Description of the theme
+msgid "Our default theme for 2020 is designed to take full advantage of the flexibility of the block editor. Organizations and businesses have the ability to create dynamic landing pages with endless layouts using the group and column blocks. The centered content column and fine-tuned typography also makes it perfect for traditional blogs. Complete editor styles give you a good idea of what your content will look like, even before you publish. You can give your site a personal touch by changing the background colors and the accent color in the Customizer. The colors of all elements on your site are automatically calculated based on the colors you pick, ensuring a high, accessible color contrast for your visitors."
+msgstr "我们的2020年默认主题旨在充分利用区块编辑器的灵活性。组织和企业可以使用群组和栏目区块创建具有无限布局的动态到达页面。居中的内容栏和经过微调的版式也使其非常适合传统博客。完整的编辑器样式使您即使在发布之前也可以清楚了解内容的外观。您可以通过在定制器中更改背景色和强调色来使您的网站更具个性。网站上所有元素的颜色都是根据您选择的颜色自动计算得出的，让访问者在何处都能看到足够高的颜色对比度，籍此保证访问无障碍。"
+
+#. Theme Name of the theme
+#: inc/block-patterns.php:20
+msgid "Twenty Twenty"
+msgstr "二〇二〇"
+
+#: index.php:51
+msgid "Nothing Found"
+msgstr "暂无内容"
+
+#: classes/class-twentytwenty-customize.php:246
+msgid "Show author bio"
+msgstr "显示作者简介"
 
 #: template-parts/entry-author-bio.php:29
 msgid "View Archive <span aria-hidden=\"true\">&rarr;</span>"
@@ -29,7 +46,7 @@ msgstr "分类于"
 msgid "Join the Club"
 msgstr "加入我们"
 
-#: inc/starter-content.php:148
+#: inc/starter-content.php:148 inc/block-patterns.php:45
 msgid "Members get access to exclusive exhibits and sales. Our memberships cost $99.99 and are billed annually."
 msgstr "会员可以参观独家展览和销售。我们的会员费为$99.99，按年收费。"
 
@@ -49,7 +66,7 @@ msgstr "UMoMA共有七层引人注目的建筑，可举办国际当代艺术展�
 msgid "From Signac to Matisse"
 msgstr "从希涅克到马蒂斯"
 
-#: inc/starter-content.php:99
+#: inc/starter-content.php:99 inc/block-patterns.php:168
 msgid "The Life I Deserve"
 msgstr "我应得的生活"
 
@@ -63,6 +80,8 @@ msgstr "战区"
 
 #: inc/starter-content.php:73 inc/starter-content.php:88
 #: inc/starter-content.php:105 inc/starter-content.php:120
+#: inc/block-patterns.php:78 inc/block-patterns.php:160
+#: inc/block-patterns.php:174
 msgid "Read More"
 msgstr "阅读更多"
 
@@ -70,7 +89,7 @@ msgstr "阅读更多"
 msgid "August 1 -- December 1"
 msgstr "8月1日—12月1日"
 
-#: inc/starter-content.php:67
+#: inc/starter-content.php:67 inc/block-patterns.php:154
 msgid "Works and Days"
 msgstr "工作与日子"
 
@@ -102,25 +121,21 @@ msgstr "覆层的颜色，默认为强调色。"
 msgid "Overlay Background Color"
 msgstr "覆层背景色"
 
-#: classes/class-twentytwenty-customize.php:283
-msgid "Settings for the \"Cover Template\" page template. Add a featured image to use as background."
-msgstr "”封面模板“页面模板设置。"
-
 #: classes/class-twentytwenty-customize.php:183
 msgid "Apply a custom color for links, buttons, featured images."
 msgstr "向按钮、链接、特色图像应用自定义颜色"
 
-#: classes/class-twentytwenty-customize.php:126
-msgid "Custom"
-msgstr "自定义"
-
-#: classes/class-twentytwenty-customize.php:125
-msgid "Default"
-msgstr "默认"
-
 #: classes/class-twentytwenty-customize.php:123
 msgid "Primary Color"
 msgstr "主颜色"
+
+#: inc/starter-content.php:130
+msgid "&#8220;Cyborgs, as the philosopher Donna Haraway established, are not reverent. They do not remember the cosmos.&#8221;"
+msgstr "“赛博格”，正如哲学家唐娜·哈拉维所言，“不具备恭敬之心。他们没有记住宇宙。”"
+
+#: classes/class-twentytwenty-customize.php:283
+msgid "Settings for the \"Cover Template\" page template. Add a featured image to use as background."
+msgstr "“封面模板”页面模板设置。将特色图片用作页面背景。"
 
 #: searchform.php:24 template-parts/modal-search.php:20
 msgid "Search for:"
@@ -141,12 +156,8 @@ msgstr[0] "我们搜索到了%s个结果。"
 msgid "Up %s"
 msgstr "向上 %s"
 
-#. translators: %s: HTML character for up arrow.
-#: footer.php:43
-msgid "To the top %s"
-msgstr "至顶部 %s"
-
-#. translators: Copyright date format, see https://www.php.net/date
+#. translators: Copyright date format, see
+#. https://www.php.net/manual/datetime.format.php
 #: footer.php:25
 msgctxt "copyright date format"
 msgid "Y"
@@ -156,6 +167,11 @@ msgstr "Y"
 msgid "404 not found"
 msgstr "404未找到"
 
+#. translators: %s: HTML character for up arrow.
+#: footer.php:43
+msgid "To the top %s"
+msgstr "返回顶部%s"
+
 #: comments.php:127
 msgid "Comments are closed."
 msgstr "评论已关闭。"
@@ -164,19 +180,15 @@ msgstr "评论已关闭。"
 msgid "Social Links Menu"
 msgstr "社交网络链接菜单"
 
-#: template-parts/content-cover.php:138 template-parts/content.php:48
+#: template-parts/content.php:48 template-parts/content-cover.php:138
 msgid "Pages:"
 msgstr "页码："
 
-#: functions.php:494
-msgid "Secondary"
-msgstr "从"
-
-#: functions.php:261
+#: functions.php:265
 msgid "Footer Menu"
 msgstr "页脚菜单"
 
-#: template-parts/content-cover.php:138 template-parts/content.php:48
+#: template-parts/content.php:48 template-parts/content-cover.php:138
 msgid "Page"
 msgstr "页"
 
@@ -189,7 +201,7 @@ msgstr "页脚"
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "编辑<span class=\"screen-reader-text\">%s</span>"
 
-#: inc/starter-content.php:177 inc/starter-content.php:187 functions.php:489
+#: inc/starter-content.php:177 inc/starter-content.php:187
 msgid "Primary"
 msgstr "主"
 
@@ -214,18 +226,22 @@ msgstr "&ldquo;%s&rdquo;上的一条回复"
 msgid "Leave a comment"
 msgstr "留下评论"
 
-#: classes/class-twentytwenty-walker-comment.php:92
+#: classes/class-twentytwenty-walker-comment.php:98
 msgid "Your comment is awaiting moderation."
 msgstr "您的评论正在等待审核。"
 
-#: classes/class-twentytwenty-walker-comment.php:77
+#: classes/class-twentytwenty-walker-comment.php:82
 msgid "Edit"
 msgstr "编辑"
 
 #. translators: 1: Comment date, 2: Comment time.
-#: classes/class-twentytwenty-walker-comment.php:69
+#: classes/class-twentytwenty-walker-comment.php:68
 msgid "%1$s at %2$s"
 msgstr "%1$s %2$s"
+
+#. Template Name of the theme
+msgid "Full Width Template"
+msgstr "全宽模板"
 
 #: template-parts/pagination.php:25
 msgid "Older <span class=\"nav-short\">Posts</span>"
@@ -247,14 +263,6 @@ msgstr "关闭搜索"
 msgid "Expanded Social links"
 msgstr "展开的社交网络链接"
 
-#: template-parts/modal-menu.php:73
-msgid "Mobile"
-msgstr "移动"
-
-#: template-parts/modal-menu.php:48
-msgid "Expanded"
-msgstr "展开的"
-
 #: template-parts/modal-menu.php:21
 msgid "Close Menu"
 msgstr "关闭菜单"
@@ -262,11 +270,6 @@ msgstr "关闭菜单"
 #: template-parts/footer-menus-widgets.php:57
 msgid "Social links"
 msgstr "社交网络链接"
-
-#. translators: %s: Author name.
-#: inc/template-tags.php:357 template-parts/entry-author-bio.php:20
-msgid "By %s"
-msgstr "由%s"
 
 #: template-parts/content-cover.php:88
 msgid "Scroll Down"
@@ -276,11 +279,6 @@ msgstr "向下滚动"
 msgctxt "submit button"
 msgid "Search"
 msgstr "搜索"
-
-#: searchform.php:25
-msgctxt "placeholder"
-msgid "Search &hellip;"
-msgstr "搜索…"
 
 #: index.php:48
 msgid "We could not find any results for your search. You can give it another try through the search form below."
@@ -311,107 +309,99 @@ msgstr "发布日期"
 msgid "Post author"
 msgstr "文章作者"
 
-#: header.php:88
-msgid "Horizontal"
-msgstr "水平"
-
 #: header.php:76 header.php:137
 msgid "Menu"
 msgstr "菜单"
-
-#: header.php:53 header.php:157
-msgid "Search"
-msgstr "搜索"
 
 #: template-parts/content.php:36
 msgid "Continue reading"
 msgstr "继续阅读"
 
-#: functions.php:546
+#: functions.php:550
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:545
+#: functions.php:549
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr "更大"
 
-#: functions.php:540
+#: functions.php:544
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr "L"
 
-#: functions.php:539
+#: functions.php:543
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr "大"
 
-#: functions.php:534
+#: functions.php:538
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr "M"
 
-#: functions.php:533
+#: functions.php:537
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr "常规"
 
-#: functions.php:528
+#: functions.php:532
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr "S"
 
-#: functions.php:527
+#: functions.php:531
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr "小"
 
-#: functions.php:512
+#: functions.php:516
 msgid "Background Color"
 msgstr "背景色"
 
-#: functions.php:499
+#: functions.php:503
 msgid "Subtle Background"
 msgstr "轻微背景"
 
-#: functions.php:484
+#: functions.php:488
 msgid "Accent Color"
 msgstr "强调色"
 
-#: functions.php:379
+#: functions.php:383
 msgid "Widgets in this area will be displayed in the second column in the footer."
 msgstr "此区域中的小工具会在页脚第二栏显示。"
 
-#: functions.php:377
+#: functions.php:381
 msgid "Footer #2"
 msgstr "页脚#2"
 
-#: functions.php:367
+#: functions.php:371
 msgid "Widgets in this area will be displayed in the first column in the footer."
 msgstr "此区域中的小工具会在页脚第一栏显示。"
 
-#: functions.php:365
+#: functions.php:369
 msgid "Footer #1"
 msgstr "页脚#1"
 
-#: functions.php:340
+#: functions.php:344
 msgid "Skip to the content"
 msgstr "跳至内容"
 
-#: functions.php:262
+#: functions.php:266
 msgid "Social Menu"
 msgstr "社交网络菜单"
 
-#: functions.php:260
+#: functions.php:264
 msgid "Mobile Menu"
 msgstr "移动菜单"
 
-#: functions.php:259
+#: functions.php:263
 msgid "Desktop Expanded Menu"
 msgstr "桌面展开式菜单"
 
-#: functions.php:258
+#: functions.php:262
 msgid "Desktop Horizontal Menu"
 msgstr "桌面水平菜单"
 
@@ -432,7 +422,7 @@ msgstr "显示子菜单"
 msgid "#%d (no title)"
 msgstr "#%d（无标题）"
 
-#: classes/class-twentytwenty-walker-comment.php:127
+#: classes/class-twentytwenty-walker-comment.php:133
 msgid "By Post Author"
 msgstr "由文章作者"
 
@@ -501,7 +491,25 @@ msgstr "页面未找到"
 msgid "Powered by WordPress"
 msgstr "由WordPress强力驱动"
 
+#. translators: %s: Author name.
+#: inc/template-tags.php:357 template-parts/entry-author-bio.php:20
+msgid "By %s"
+msgstr "%s"
+
+#: searchform.php:25
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "搜索&hellip;"
+
+#. Author of the theme
+msgid "the WordPress team"
+msgstr "WordPress团队"
+
 #. Author URI of the theme
 #: footer.php:32
 msgid "https://wordpress.org/"
 msgstr "https://cn.wordpress.org/"
+
+#. Theme URI of the theme
+msgid "https://wordpress.org/themes/twentytwenty/"
+msgstr "https://wordpress.org/themes/twentytwenty/"
