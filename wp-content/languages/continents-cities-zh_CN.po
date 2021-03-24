@@ -1,15 +1,15 @@
-# Translation of WordPress - 5.6.x - Development - Continents & Cities in Chinese (China)
-# This file is distributed under the same license as the WordPress - 5.6.x - Development - Continents & Cities package.
+# Translation of WordPress - 5.7.x - Development - Continents & Cities in Chinese (China)
+# This file is distributed under the same license as the WordPress - 5.7.x - Development - Continents & Cities package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-11-27 04:30:28+0000\n"
+"PO-Revision-Date: 2021-03-19 13:10:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: zh_CN\n"
-"Project-Id-Version: WordPress - 5.6.x - Development - Continents & Cities\n"
+"Project-Id-Version: WordPress - 5.7.x - Development - Continents & Cities\n"
 
 #: wp-admin/includes/continents-cities.php:478
 msgid "Saratov"
@@ -97,7 +97,7 @@ msgstr "巴尔瑙尔"
 
 #: wp-admin/includes/continents-cities.php:251
 msgid "Troll"
-msgstr "巨魔"
+msgstr "特罗尔"
 
 #: wp-admin/includes/continents-cities.php:244
 msgid "Macquarie"
@@ -913,7 +913,7 @@ msgstr "万象"
 
 #: wp-admin/includes/continents-cities.php:348
 msgid "Urumqi"
-msgstr "* 乌鲁木齐"
+msgstr "乌鲁木齐"
 
 #: wp-admin/includes/continents-cities.php:347
 msgid "Ulan Bator"
@@ -957,7 +957,7 @@ msgstr "塔什干"
 
 #: wp-admin/includes/continents-cities.php:336
 msgid "Taipei"
-msgstr "* 台北"
+msgstr "台北"
 
 #: wp-admin/includes/continents-cities.php:334
 msgid "Singapore"
@@ -965,7 +965,7 @@ msgstr "新加坡"
 
 #: wp-admin/includes/continents-cities.php:333
 msgid "Shanghai"
-msgstr "* 上海"
+msgstr "上海"
 
 #: wp-admin/includes/continents-cities.php:332
 msgid "Seoul"
@@ -1046,11 +1046,11 @@ msgstr "马加丹"
 
 #: wp-admin/includes/continents-cities.php:312
 msgid "Macau"
-msgstr "* 澳门"
+msgstr "澳门"
 
 #: wp-admin/includes/continents-cities.php:311
 msgid "Macao"
-msgstr "* 澳门"
+msgstr "澳门"
 
 #: wp-admin/includes/continents-cities.php:310
 msgid "Kuwait"
@@ -1078,7 +1078,7 @@ msgstr "加德满都"
 
 #: wp-admin/includes/continents-cities.php:302
 msgid "Kashgar"
-msgstr "* 喀什"
+msgstr "喀什"
 
 #: wp-admin/includes/continents-cities.php:301
 msgid "Karachi"
@@ -1119,7 +1119,7 @@ msgstr "科布多"
 
 #: wp-admin/includes/continents-cities.php:292
 msgid "Hong Kong"
-msgstr "* 香港"
+msgstr "香港"
 
 #: wp-admin/includes/continents-cities.php:291
 msgid "Ho Chi Minh"
@@ -1127,7 +1127,7 @@ msgstr "胡志明市"
 
 #: wp-admin/includes/continents-cities.php:289
 msgid "Harbin"
-msgstr "* 哈尔滨"
+msgstr "哈尔滨"
 
 #: wp-admin/includes/continents-cities.php:288
 msgid "Gaza"
@@ -1163,11 +1163,11 @@ msgstr "科伦坡"
 
 #: wp-admin/includes/continents-cities.php:279
 msgid "Chungking"
-msgstr "* 重庆"
+msgstr "重庆"
 
 #: wp-admin/includes/continents-cities.php:278
 msgid "Chongqing"
-msgstr "* 重庆"
+msgstr "重庆"
 
 #: wp-admin/includes/continents-cities.php:277
 msgid "Choibalsan"
@@ -1239,7 +1239,7 @@ msgstr "亚丁"
 
 #: wp-admin/includes/continents-cities.php:257
 msgid "Asia"
-msgstr "亚洲（*：常用时区）"
+msgstr "亚洲"
 
 #: wp-admin/includes/continents-cities.php:255
 msgid "Longyearbyen"
@@ -1271,7 +1271,7 @@ msgstr "帕尔默"
 
 #: wp-admin/includes/continents-cities.php:246
 msgid "McMurdo"
-msgstr "麦克默多站"
+msgstr "麦克默多"
 
 #: wp-admin/includes/continents-cities.php:245
 msgid "Mawson"
@@ -1439,7 +1439,7 @@ msgstr "太子港"
 
 #: wp-admin/includes/continents-cities.php:198
 msgid "Phoenix"
-msgstr "凤凰"
+msgstr "凤凰城"
 
 #: wp-admin/includes/continents-cities.php:197
 msgid "Paramaribo"
@@ -1785,7 +1785,7 @@ msgstr "博阿维斯塔"
 
 #: wp-admin/includes/continents-cities.php:97
 msgid "Blanc-Sablon"
-msgstr "勒布朗-拉姆"
+msgstr "布兰克－萨布隆"
 
 #: wp-admin/includes/continents-cities.php:96
 msgid "Belize"
